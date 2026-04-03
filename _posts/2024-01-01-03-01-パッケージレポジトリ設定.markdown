@@ -4,6 +4,27 @@ title: パッケージレポジトリ設定
 category: "パッケージレポジトリ"
 ---
 
+
+# レポジトリ有効化/無効化
+
+/etc/yum.repos.d/\*.repo の設定ファイルを書き換えているので、永続設定である。
+
+## 有効化
+
+```sh
+sudo dnf config-manager --set-enabled crb
+sudo dnf config-manager --set-enabled extras
+```
+
+## 無効化
+
+```sh
+sudo dnf config-manager --set-disabled crb
+sudo dnf config-manager --set-disabled extras
+```
+
+---
+
 インストールメディアをマウントして、パッケージレポジトリを使用できるようにする。
 
 # AlmaLinuxのパッケージレポジトリ設定
