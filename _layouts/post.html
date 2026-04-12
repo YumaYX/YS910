@@ -2,6 +2,7 @@
 layout: default
 ---
 
+<section>
 <h1>{{ page.title }}</h1>
 
 {{ content }}
@@ -9,7 +10,7 @@ layout: default
 <center>
 <div class="PageNavigation">
   {% if page.previous.url %}
-    <a class="prev" href="{{ site.baseurl }}{{page.previous.url}}">◀​​ {{page.previous.title}}</a>
+    <a class="prev" href="{{ site.baseurl }}{{page.previous.url}}">◀ {{page.previous.title}}</a>
   {% endif %}
   {% if page.previous.url and page.next.url %} | {% endif %}
   {% if page.next.url %}
@@ -17,3 +18,4 @@ layout: default
   {% endif %}
 </div>
 </center>
+</section>
