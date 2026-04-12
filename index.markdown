@@ -2,8 +2,10 @@
 layout: default
 ---
 
+<section>
 本プロジェクトは、Red Hat Enterprise Linuxクローンを使用した検証の記録である。
 よく使うコマンドや設定集を紹介する。
+</section>
 
 {% for category in  site.categories %}
 ## {{ forloop.index }} {{ category[0] }}
