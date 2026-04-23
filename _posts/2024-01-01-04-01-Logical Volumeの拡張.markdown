@@ -119,5 +119,3 @@ AlmaLinux release 9.4 (Seafoam Ocelot)
 | Volume Group | almalinux, rl |
 | Physical Volume | /dev/sda3 |
 | Physical Device | /dev/sda |
-
-![LVM Hierarchy](https://www.redhat.com/sysadmin/sites/default/files/styles/full/public/2020-03/LVM%20Cropped.jpg?itok=wz2G1Aci)["LVM Hierarchy"](https://www.flickr.com/photos/91795203@N02/14127487464) by xmodulo
