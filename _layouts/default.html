@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="/assets/css/skeleton.css">
+    <link rel="stylesheet" href="/assets/css/extends.css">
     <link rel="icon" href="/favicon.png" type="image/png">
-    <link rel="stylesheet" href="https://yumayx.github.io/works/assets/css/skeleton.css">
-    <link rel="stylesheet" href="https://yumayx.github.io/works/assets/css/extends.css">
   </head>
-  <body>
 
+  <body>
     <nav class="navbar">
       <div class="container">
         <h2 class="stitle"><a href="{{ site.baseurl }}/">{{ site.title }}</a></h2>
@@ -18,18 +18,22 @@
 
     <div class="container">
       <div class="main">
-      {{ content }}
+        {{ content }}
       </div>
     </div>
 
-    <hr />
+    <hr>
+
     <footer>
-      <div class="container">
-        <h1><strong>Yuma</strong></h1>
-        <div class="credit">
-          <p>✎ {{ site.title }} Created and Maintained by <a href="/works/">Yuma</a></p>
-        </div>
+      <div class="container credit">
+        <h1>Yuma</h1>
+        {% if site.baseurl == "" %}
+        <p>✎ {{ site.title }} CREATED AND MAINTAINED BY <a href="https://github.com/YumaYX">YumaYX</a></p>
+        {% else %}
+        <p>✎ {{ site.title }} CREATED AND MAINTAINED BY <a href="/">Yuma</a></p>
+        {% endif %}
       </div>
     </footer>
+
   </body>
 </html>
