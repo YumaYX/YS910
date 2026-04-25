@@ -8,7 +8,7 @@ category: "systemd"
 
 ## Reference
 
-- [知っておくとちょっと便利！systemd.timer によるタスク管理2 | SIOS Tech Lab](https://tech-lab.sios.jp/archives/48489)
+- [知っておくとちょっと便利！systemd.timer によるタスク管理2 \| SIOS Tech Lab](https://tech-lab.sios.jp/archives/48489)
 - [なぜcronからsystemd timerへ移行しているのか？歴史と設計思想から理解する](https://zenn.dev/hcompany/articles/20260119_systemd_timer)
 
 # Cronとの違い
@@ -54,7 +54,7 @@ EOF
 
 `Persistent=true`で、実行時刻を逃しても後で実行できる。
 
-[知っておくとちょっと便利！systemd.timer によるタスク管理2 | SIOS Tech Lab](https://tech-lab.sios.jp/archives/48489)より、
+[知っておくとちょっと便利！systemd.timer によるタスク管理2 \| SIOS Tech Lab](https://tech-lab.sios.jp/archives/48489)より、
 
 > OnCalendar
 > 最も一般的な設定方法で、特定の日時、定期的なタイミング (毎日、毎分など) を指定します。
