@@ -55,5 +55,4 @@ AlmaLinux release 9.4 (Seafoam Ocelot)
 
 # Reference
 
-- <https://qiita.com/tomozo6/items/cdfb3ebc4be8bd19a2c9>
-
+[新しいHDDを追加して既存LVM領域を拡張する手順メモ #Linux - Qiita](https://qiita.com/tomozo6/items/cdfb3ebc4be8bd19a2c9)

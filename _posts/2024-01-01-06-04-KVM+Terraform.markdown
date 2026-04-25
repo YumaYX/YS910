@@ -325,6 +325,6 @@ libvirtd (libvirt) 10.0.0
 
 # Reference
 
-- <https://developer.hashicorp.com/terraform/install>
-- <https://github.com/dmacvicar/terraform-provider-libvirt>
-- <https://repo.almalinux.org/almalinux/9/cloud/x86_64/images/>
+- [Install | Terraform | HashiCorp Developer](https://developer.hashicorp.com/terraform/install)
+- [GitHub - dmacvicar/terraform-provider-libvirt: Terraform provider to provision infrastructure with Linux's KVM using libvirt · GitHub](https://github.com/dmacvicar/terraform-provider-libvirt)
+- [Index of /almalinux/9/cloud/x86_64/images/](https://repo.almalinux.org/almalinux/9/cloud/x86_64/images/)

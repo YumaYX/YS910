@@ -166,4 +166,6 @@ sesearch -b httpd_can_network_connect --allow
 dnf -y install policycoreutils-python-utils
 ```
 
-Reference <https://access.redhat.com/>
+##### Reference
+
+[Red Hat Customer Portal - Access to 24x7 support and knowledge](https://access.redhat.com/)

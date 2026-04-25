@@ -213,4 +213,4 @@ AlmaLinux release 9.3 (Shamrock Pampas Cat)
 
 # Reference
 
-- <https://knowledge.sakura.ad.jp/2226/>
+[Docker向けのコンテナをゼロから作ってみよう | さくらのナレッジ](https://knowledge.sakura.ad.jp/2226/)

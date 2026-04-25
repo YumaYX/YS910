@@ -181,7 +181,6 @@ y
 
 # Reference
 
-- <https://chidipy.jpn.com/server/other/xfs_efi_backuprestore.html>
-- <https://qiita.com/ksota/items/a7efc598ec31c611a4d1>
-- <https://blue-red.ddo.jp/~ao/wiki/wiki.cgi?page=%A5%B7%A5%B9%A5%C6%A5%E0%A5%D0%A5%C3%A5%AF%A5%A2%A5%C3%A5%D7+XFS>
-
+- [Linux システムバックアップリストア(xfs dump restore) - きまぐれほげほげひろば](https://chidipy.jpn.com/server/other/xfs_efi_backuprestore.html)
+- [linux マシンのブートディスクを HDD から SSD へ移植した #Linux - Qiita](https://qiita.com/ksota/items/a7efc598ec31c611a4d1)
+- [システムバックアップ XFS - ふなWiki](https://blue-red.ddo.jp/~ao/wiki/wiki.cgi?page=%A5%B7%A5%B9%A5%C6%A5%E0%A5%D0%A5%C3%A5%AF%A5%A2%A5%C3%A5%D7+XFS)

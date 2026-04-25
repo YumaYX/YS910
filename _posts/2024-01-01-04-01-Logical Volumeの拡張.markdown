@@ -79,7 +79,7 @@ lvs
 > 　%PVS　物理ボリュームに対する比率
 > 　%ORIGIN　元の論理ボリュームの合計サイズ（スナップショット用）に対する比率
 
-- <https://atmarkit.itmedia.co.jp/ait/articles/1910/31/news025.html>
+[【 lvresize 】コマンド――論理ボリュームのサイズを変更する：Linux基本コマンドTips（350） - ＠IT](https://atmarkit.itmedia.co.jp/ait/articles/1910/31/news025.html)
 
 ## 拡張結果
 
@@ -106,7 +106,7 @@ AlmaLinux release 9.4 (Seafoam Ocelot)
 
 # Reference
 
-- <https://qiita.com/TsutomuNakamura/items/93c6333c8dd32aeb197a>
+[LVMで 論理ボリュームの作成、拡張、縮小、複製 #Linux - Qiita](https://qiita.com/TsutomuNakamura/items/93c6333c8dd32aeb197a)
 
 ---
 

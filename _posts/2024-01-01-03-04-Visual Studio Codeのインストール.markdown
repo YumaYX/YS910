@@ -18,7 +18,7 @@ dnf check-update
 sudo dnf -y install code
 ```
 
-<https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-distributions>
+[Visual Studio Code on Linux](https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-distributions)
 
 
 # sshリモート先のディレクトリを開く方法

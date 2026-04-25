@@ -137,5 +137,5 @@ APPSTREAMEOL
 
 #### Link
 
-- <https://ftp.riken.jp/Linux/almalinux/>
+[Index of /Linux/almalinux](https://ftp.riken.jp/Linux/almalinux/)
 

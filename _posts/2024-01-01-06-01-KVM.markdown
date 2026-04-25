@@ -74,6 +74,5 @@ virsh start guest1-rhel9
 
 #### Reference
 
-- <https://docs.redhat.com/ja/documentation/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-virsh-delete>
-- <https://qiita.com/TsutomuNakamura/items/22d9d2629a8eb9360865>
-
+- [20.9. 仮想マシンの削除 | 仮想化の導入および管理ガイド | Red Hat Enterprise Linux | 7 | Red Hat Documentation](https://docs.redhat.com/ja/documentation/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-virsh-delete)
+- [VirshコマンドによるKVMゲストOSの管理 #Linux - Qiita](https://qiita.com/TsutomuNakamura/items/22d9d2629a8eb9360865)

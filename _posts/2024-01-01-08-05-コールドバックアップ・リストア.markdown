@@ -77,5 +77,4 @@ gunzip -c ${bkdir}/vda_backup.image.gz | dd of=/dev/vda bs=16MB status=progress
 
 ##### Reference
 
-- <https://qiita.com/taiyodayo/items/7c60c9b3bc00b13baf43>
-
+[「dd | gzip」 はそこまでだ！「dd | pigz」にするだけで20倍速くなった件 #Linux - Qiita](https://qiita.com/taiyodayo/items/7c60c9b3bc00b13baf43)
