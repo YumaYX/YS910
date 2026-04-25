@@ -332,9 +332,9 @@ cat /dev/null > /etc/security/opasswd
 
 # Reference
 
-- [第2章 authselect を使用したユーザー認証の設定 | RHEL での認証と認可の設定 | Red Hat Enterprise Linux | 8 | Red Hat Documentation](https://docs.redhat.com/ja/documentation/red_hat_enterprise_linux/8/html/configuring_authentication_and_authorization_in_rhel/configuring-user-authentication-using-authselect_configuring-authentication-and-authorization-in-rhel)
+- [第2章 authselect を使用したユーザー認証の設定 \| RHEL での認証と認可の設定 \| Red Hat Enterprise Linux \| 8 \| Red Hat Documentation](https://docs.redhat.com/ja/documentation/red_hat_enterprise_linux/8/html/configuring_authentication_and_authorization_in_rhel/configuring-user-authentication-using-authselect_configuring-authentication-and-authorization-in-rhel)
 - [CentOS 8 : PAM インストールと設定 : Server World](https://www.server-world.info/query?os=CentOS_8&p=pam)
 - [CentOS Stream 9 : PAM インストールと設定 : Server World](https://www.server-world.info/query?os=CentOS_Stream_9&p=pam)
-- [OS の認証周りの設定を変更してみよう ～authselect について～ | SIOS Tech Lab](https://tech-lab.sios.jp/archives/41187)
+- [OS の認証周りの設定を変更してみよう ～authselect について～ \| SIOS Tech Lab](https://tech-lab.sios.jp/archives/41187)
 - [ログインの失敗回数の設定 #Linux - Qiita](https://qiita.com/sugar_salt75/items/546d340ef70bbb615d3d)
 - [CentOS 8 : ログインの失敗回数を制限する : Server World](https://www.server-world.info/query?os=CentOS_8&p=pam&f=2)

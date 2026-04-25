@@ -38,7 +38,7 @@ sudo systemctl enable --now docker
 
 ##### Reference
 
-[Install Docker Engine on RHEL | Docker Docs](https://docs.docker.com/engine/install/rhel/)
+[Install Docker Engine on RHEL \| Docker Docs](https://docs.docker.com/engine/install/rhel/)
 
 # Actインストール
 
