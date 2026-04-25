@@ -14,5 +14,5 @@ layout: default
 
 ## 付録
 
-- [コマンド集](/docs/commands/)
+- [コマンド集](/docs/)
 - [プロジェクトレポジトリ](https://github.com/YumaYX/YS910)
