@@ -4,11 +4,11 @@ title: KVM+Terraform
 category: "仮想化"
 ---
 
-# 何ができるか？
+## 何ができるか？
 
 - Linux VMのインストール、ブート
 
-# 想定環境、想定シナリオ
+## 想定環境、想定シナリオ
 
 AlmaLinuxをホストとし、仮想マシンゲストとしてAlmaLinuxをブートする。
 Terraformを使用して、Linuxを動作させる環境を作る。
@@ -17,9 +17,9 @@ Terraformを使用して、Linuxを動作させる環境を作る。
 
 libvirt、Terraformをインストールする。Terraformを実行することで、AlmaLinuxディストリビューションのイメージをダウンロードし、そのイメージからAlmaLinuxをブートする。ブートするLinuxの初期設定は、Cloud-initにて行う。
 
-# インストール
+## インストール
 
-## Install Terraform
+### Install Terraform
 
 ```sh
 yum install -y yum-utils
@@ -27,20 +27,20 @@ yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.
 yum -y install terraform
 ```
 
-## Install Go Lang for terraform-provider-libvirt
+### Install Go Lang for terraform-provider-libvirt
 
 ```sh
 dnf -y install go
 ```
 
-## Install terraform-provider-libvert
+### Install terraform-provider-libvert
 
 ```sh
 git clone https://github.com/dmacvicar/terraform-provider-libvirt.git
 cd terraform-provider-libvirt && make install
 ```
 
-## Install KVM
+### Install KVM
 
 ```sh
 dnf -y install qemu-kvm libvirt virt-install libvirt-devel virt-manager
@@ -57,7 +57,7 @@ usermod -aG libvirt ${user}
 su - ${user}
 ```
 
-## インストール確認
+### インストール確認
 
 ```sh
 mkdir test_tf && cd test_tf
@@ -86,7 +86,7 @@ done
 cd - && rm -rf test_tf
 ```
 
-# コンフィグファイルの作成
+## コンフィグファイルの作成
 
 実行環境がインストールされたので、実際に、Terraformを動かす。本例は、[terraform-libvirt-ubuntu-examples](https://github.com/fabianlee/terraform-libvirt-ubuntu-examples)を参考に作成している。
 
@@ -271,7 +271,7 @@ MAI
 - resource "libvirt_domain"ブロック、graphicのtypeをvncに変更している。
 - cpuについて、パススルーを追記。理由は、後述にあり。
 
-## 起動
+### 起動
 
 ```sh
 # 初回
@@ -282,7 +282,7 @@ make create-keypair && make init && make
 make
 ```
 
-## Clean
+### Clean
 
 makefileの記述にしたがって操作する。
 
@@ -290,7 +290,7 @@ makefileの記述にしたがって操作する。
 make destroy # terraform destroy -auto-approve
 ```
 
-# try&err
+## try&err
 
 ```
 Failed to connect socket to '/var/run/libvirt/libvirt-sock'
@@ -317,7 +317,7 @@ Error: can't find storage pool 'default'
 
   いつもは、vagrantを使用しているため、vagrantは裏で、自動で作成している可能性がある(?)。
 
-# バージョン
+## バージョン
 
 ```
 [root@y ~]# cat /etc/redhat-release 
@@ -330,7 +330,7 @@ libvirtd (libvirt) 10.0.0
 [root@y ~]# 
 ```
 
-# Reference
+## Reference
 
 - [Install \| Terraform \| HashiCorp Developer](https://developer.hashicorp.com/terraform/install)
 - [GitHub - dmacvicar/terraform-provider-libvirt: Terraform provider to provision infrastructure with Linux's KVM using libvirt · GitHub](https://github.com/dmacvicar/terraform-provider-libvirt)

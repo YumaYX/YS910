@@ -5,18 +5,18 @@ category: "パッケージレポジトリ"
 ---
 
 
-# レポジトリ有効化/無効化
+## レポジトリ有効化/無効化
 
 /etc/yum.repos.d/\*.repo の設定ファイルを書き換えているので、永続設定である。
 
-## 有効化
+### 有効化
 
 ```sh
 sudo dnf config-manager --set-enabled crb
 sudo dnf config-manager --set-enabled extras
 ```
 
-## 無効化
+### 無効化
 
 ```sh
 sudo dnf config-manager --set-disabled crb
@@ -27,7 +27,7 @@ sudo dnf config-manager --set-disabled extras
 
 インストールメディアをマウントして、パッケージレポジトリを使用できるようにする。
 
-# AlmaLinuxのパッケージレポジトリ設定
+## AlmaLinuxのパッケージレポジトリ設定
 
 1. 既存のパッケージレポジトリ参照先ファイルを退避させる
 1. インストールメディアのマウント先を、参照先とする
@@ -61,25 +61,25 @@ DVDMOUNT
 sh dvd_mount.sh
 ```
 
-## ISOファイルマウント
+### ISOファイルマウント
 
 ```sh
 mount -o loop AlmaLinux-9.4-x86_64-dvd.iso /media
 ```
 
-## ISOファイルダウンロード
+### ISOファイルダウンロード
 
 ```sh
 curl -O https://ftp.riken.jp/Linux/almalinux/9.4/isos/x86_64/AlmaLinux-9.4-x86_64-dvd.iso
 ```
 
-# レポジトリ参照先を元に戻す場合
+## レポジトリ参照先を元に戻す場合
 
 ```sh
 \cp -fpv /root/repos/* /etc/yum.repos.d/
 rm -i /etc/yum.repos.d/dvd.repo
 ```
 
-#### Link
+##### Link
 
 [Index of /Linux/almalinux](https://ftp.riken.jp/Linux/almalinux/)

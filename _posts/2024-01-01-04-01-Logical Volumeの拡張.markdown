@@ -6,17 +6,17 @@ category: "ディスク"
 
 Logical Volumeを拡張する。
 
-# 何ができるか？
+## 何ができるか？
 
 - より大きな、多くのファイルの保存
 - Logical Volume(マウントポイント)の領域拡張
 
-## 環境条件
+### 環境条件
 
 - Physical Volume、Volume Group、Logical Volumeが、ひとつのPhysical Deviceに存在すること
 - Physical Deviceに未定義領域が存在すること
 
-# 想定環境パラメータ
+## 想定環境パラメータ
 
 | items | value |
 | --- | --- |
@@ -25,9 +25,9 @@ Logical Volumeを拡張する。
 | Volume Group | almalinux |
 | Logical Volume | var |
 
-# Logical Volumeの拡張手順
+## Logical Volumeの拡張手順
 
-## 環境把握
+### 環境把握
 
 ディスクの状態を確認する。
 
@@ -39,7 +39,7 @@ parted /dev/sda print free
 
 未定義領域の大きさ(free  space)をこの時点で確認する。
 
-## Physical Volumeの拡張
+### Physical Volumeの拡張
 
 1. `parted`で、Physical Deviceを選択する。
 1. リサイズするディスクパーティションを指定する。
@@ -59,7 +59,7 @@ pvresize /dev/sda2
 pvs
 ```
 
-## Logical Volumeの拡張
+### Logical Volumeの拡張
 
 `lvresize`で、LVを拡張する。
 
@@ -69,7 +69,7 @@ lvresize -r -l+100%FREE /dev/almalinux/var
 lvs
 ```
 
-### lvresize
+#### lvresize
 
 > `-r`:ファイルシステムのサイズも変更する
 
@@ -81,7 +81,7 @@ lvs
 
 [【 lvresize 】コマンド――論理ボリュームのサイズを変更する：Linux基本コマンドTips（350） - ＠IT](https://atmarkit.itmedia.co.jp/ait/articles/1910/31/news025.html)
 
-## 拡張結果
+### 拡張結果
 
 拡張後の状態を確認する。
 
@@ -89,7 +89,7 @@ lvs
 df -h
 ```
 
-### 書き込みチェック
+#### 書き込みチェック
 
 ```sh
 cd /var
@@ -98,19 +98,19 @@ for f in $(seq 15); do dd if=/dev/random of=1G.dummy.$f bs=1M count=1000; df -h;
 rm -i 1G.dummy.*
 ```
 
-# Env.
+## Env.
 
 ```
 AlmaLinux release 9.4 (Seafoam Ocelot)
 ```
 
-# Reference
+## Reference
 
 [LVMで 論理ボリュームの作成、拡張、縮小、複製 #Linux - Qiita](https://qiita.com/TsutomuNakamura/items/93c6333c8dd32aeb197a)
 
 ---
 
-# 付録
+## 付録
 
 | items | example |
 | --- | --- |

@@ -6,7 +6,7 @@ category: "仮想化"
 
 KVMを使って、仮想マシンをブートする。
 
-# KVM, QEMU, libvirtのインストール
+## KVM, QEMU, libvirtのインストール
 
 as root
 
@@ -20,7 +20,7 @@ systemctl enable --now libvirtd
 dnf -y install virt-manager
 ```
 
-# 仮想マシンのインストール
+## 仮想マシンのインストール
 
 as root
 
@@ -42,37 +42,37 @@ virt-install \
 virsh console guest1-rhel9
 ```
 
-# 仮想マシンのリスト
+## 仮想マシンのリスト
 
 ```sh
 virsh list --all
 ```
 
-# 仮想マシンのシャットダウン
+## 仮想マシンのシャットダウン
 
 ```sh
 virsh shutdown guest1-rhel9
 ```
 
-# 仮想マシンの強制終了
+## 仮想マシンの強制終了
 
 ```sh
 virsh destroy guest1-rhel9
 ```
 
-# 仮想マシンの削除
+## 仮想マシンの削除
 
 ```sh
 virsh undefine guest1-rhel9 --remove-all-storage
 ```
 
-# 仮想マシンの電源オン
+## 仮想マシンの電源オン
 
 ```sh
 virsh start guest1-rhel9
 ```
 
-#### Reference
+##### Reference
 
 - [20.9. 仮想マシンの削除 \| 仮想化の導入および管理ガイド \| Red Hat Enterprise Linux \| 7 \| Red Hat Documentation](https://docs.redhat.com/ja/documentation/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-virsh-delete)
 - [VirshコマンドによるKVMゲストOSの管理 #Linux - Qiita](https://qiita.com/TsutomuNakamura/items/22d9d2629a8eb9360865)

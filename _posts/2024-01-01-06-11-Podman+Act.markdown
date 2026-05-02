@@ -4,13 +4,13 @@ title: Podman+Act
 category: "コンテナ"
 ---
 
-# Podmanでactを動かす
+## Podmanでactを動かす
 
-## モチベーション
+### モチベーション
 
 - Podmanでactを動かす：Dockerを使用しない
 
-# Podman, actインストール
+## Podman, actインストール
 
 前提として、Dockerはインストールしていない状態
 
@@ -21,7 +21,7 @@ dnf -y install podman
 cd && curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash
 ```
 
-# Podmanサービス起動
+## Podmanサービス起動
 
 actは、/var/run/docker.sockにapiを叩く。podmanをインストールすることで、`/run/podman/podman.sock`にエイリアスが張る。
 
@@ -39,7 +39,7 @@ podman system service -t 0 &
 # > -t: A value of 0 means no timeout, therefore the session does not expire.
 ```
 
-# act実行時のコマンド
+## act実行時のコマンド
 
 `sudo /root/bin/act`
 
@@ -47,10 +47,10 @@ podman system service -t 0 &
 
 ポイントとしては、rootのhome(`/root/bin/act`)にactをインストールし、Dockerの実行権限などに従い、actをroot実行をする点である。
 
-# デーモン化
+## デーモン化
 
 再起動後も常に起動するようにするにもできるが、現在必要がないため、省略する。
 
-# Reference
+## Reference
 
 [podman-system-service — Podman documentation](https://docs.podman.io/en/latest/markdown/podman-system-service.1.html)

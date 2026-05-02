@@ -6,34 +6,34 @@ category: "パッケージレポジトリ"
 
 firewalldを使って、ファイアウォールを設定する。
 
-# Firewalld
+## Firewalld
 
-## インストール
+### インストール
 
 ```sh
 dnf -y install firewalld
 systemctl enable --now firewalld
 ```
 
-## 現在の適用ファイアウォール一覧
+### 現在の適用ファイアウォール一覧
 
 ```sh
 firewall-cmd --list-all
 ```
 
-## サービス: HTTP 開放
+### サービス: HTTP 開放
 
 ```sh
 firewall-cmd --permanent --zone=public --add-service=http
 ```
 
-## ポート番号: 80 開放
+### ポート番号: 80 開放
 
 ```sh
 firewall-cmd --permanent --zone=public --add-port=80/tcp
 ```
 
-## ポート閉塞
+### ポート閉塞
 
 ```sh
 firewall-cmd --permanent --zone=public --remove-service=http
@@ -42,7 +42,7 @@ firewall-cmd --permanent --zone=public --remove-service=http
 firewall-cmd --permanent --zone=public --remove-port=80/tcp
 ```
 
-## Reload
+### Reload
 
 ```sh
 firewall-cmd --reload

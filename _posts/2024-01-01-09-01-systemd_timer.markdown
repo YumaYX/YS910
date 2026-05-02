@@ -6,23 +6,23 @@ category: "systemd"
 
 定期実行について取り扱う。参考文献のほぼ引用の内容となっている。
 
-## Reference
+### Reference
 
 - [知っておくとちょっと便利！systemd.timer によるタスク管理2 \| SIOS Tech Lab](https://tech-lab.sios.jp/archives/48489)
 - [なぜcronからsystemd timerへ移行しているのか？歴史と設計思想から理解する](https://zenn.dev/hcompany/articles/20260119_systemd_timer)
 
-# Cronとの違い
+## Cronとの違い
 
 - cron: 時間に従って、実行
 - systemd timer: 状態管理しながら、実行
 
 適する場面に応じて、使い分けることが必要。
 
-# 使い方
+## 使い方
 
 下の`SERVICE file`, `TIMER file`, `Shell`を作成する。続いて下の`Commands`に従って、実行を設定する。
 
-## SERVICE file
+### SERVICE file
 
 ```sh
 cat <<'EOF' > /etc/systemd/system/test.service
@@ -37,7 +37,7 @@ EOF
 
 `ExecStart`の書き方について、実行するシェル名を直接書いてもいいが、SELinuxが作動し、Permission deniedで実行できなかった(timerに限らず、systemdファイルの記載時によく起こりうる）。避ける方法としては、ファイルのSELinux Contextsを修正する、または`bash "shell name"`のように、bashを実行させるよう見せかける必要がある。今回の検証では、後者を採用している。まさか、SELinuxを動作させない管理者なんて居ない。まさかね。
 
-## TIMER file
+### TIMER file
 
 ```sh
 cat <<'EOF' > /etc/systemd/system/test.timer
@@ -74,7 +74,7 @@ EOF
 
 `OnCalendar=1999-12-31 12:34:56`というように書ける。
 
-## Shell
+### Shell
 
 ```sh
 chmod +x /tmp/test.sh
@@ -84,28 +84,28 @@ echo "$(date)" >> /tmp/test
 EOF
 ```
 
-## Commands
+### Commands
 
-### 実行（実行登録）
+#### 実行（実行登録）
 
 ```sh
 systemctl daemon-reload
 systemctl enable --now test.timer
 ```
 
-### 次回実行予定の確認
+#### 次回実行予定の確認
 
 ```sh
 systemctl list-timers --all
 ```
 
-### ログ確認
+#### ログ確認
 
 ```sh
 journalctl -u test.service
 ```
 
-#### clean env for test
+##### clean env for test
 
 ```sh
 #systemctl stop test.timer
@@ -117,6 +117,6 @@ rm \
   /tmp/test.sh
 ```
 
-# 参考文献
+## 参考文献
 
 上部に記載

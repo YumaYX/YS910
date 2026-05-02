@@ -6,7 +6,7 @@ category: "パッケージレポジトリ"
 
 ユーザーインタフェースを整える。
 
-# GUI環境
+## GUI環境
 
 `Server with GUI`をサーバーグループでインストールする。
 
@@ -16,7 +16,7 @@ dnf -y group install "Server with GUI"
 startx
 ```
 
-## 日本語ディレクトリ名を英語表記にする
+### 日本語ディレクトリ名を英語表記にする
 
 「C」ロケールを使用してGTK環境でユーザーディレクトリを更新する
 
@@ -24,7 +24,7 @@ startx
 LANG=C xdg-user-dirs-gtk-update
 ```
 
-## GUI設定
+### GUI設定
 
 打鍵後、次回の起動時に、グラフィカルモードで起動する
 
@@ -32,7 +32,7 @@ LANG=C xdg-user-dirs-gtk-update
 sudo systemctl set-default graphical.target
 ```
 
-## CUI設定
+### CUI設定
 
 打鍵後、次回の起動時に、マルチユーザーモードで起動する
 

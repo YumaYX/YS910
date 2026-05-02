@@ -4,17 +4,17 @@ title: Docker+Act
 category: "コンテナ"
 ---
 
-# ***<u>本記事は、Podmanで、act実行可能になったため、使用しない。「Podman+Act」を参照する。</u>***
+## ***<u>本記事は、Podmanで、act実行可能になったため、使用しない。「Podman+Act」を参照する。</u>***
 
-# 何ができるか
+## 何ができるか
 
 - ローカル環境でGitHub Actions実行
 
-## 注意点
+### 注意点
 
 本手順では、podmanをアンインストールする手順となっている。
 
-# Dockerインストール
+## Dockerインストール
 
 ```sh
 sudo yum remove -y docker \
@@ -36,11 +36,11 @@ sudo yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin d
 sudo systemctl enable --now docker
 ```
 
-##### Reference
+###### Reference
 
 [Install Docker Engine on RHEL \| Docker Docs](https://docs.docker.com/engine/install/rhel/)
 
-# Actインストール
+## Actインストール
 
 sudoできるユーザーで、actをインストールする。
 
@@ -48,7 +48,7 @@ sudoできるユーザーで、actをインストールする。
 curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash
 ```
 
-# Act実行
+## Act実行
 
 ```sh
 sudo ~/bin/act

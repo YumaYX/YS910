@@ -9,7 +9,7 @@ category: "ネットワーク設定"
 - `enp0s`は、ネットワークインタフェース
   - 環境によって異なる
 
-# Static
+## Static
 
 ```sh
 nmcli networking on
@@ -27,7 +27,7 @@ nmcli c mod $c connection.autoconnect yes
 nmcli c up $c
 ```
 
-# Dynamic
+## Dynamic
 
 ```sh
 nmcli networking on
@@ -42,7 +42,7 @@ nmcli c mod $c connection.autoconnect yes
 nmcli c up $c
 ```
 
-# Hostname
+## Hostname
 
 ```sh
 hostnamectl set-hostname --static <hostname>

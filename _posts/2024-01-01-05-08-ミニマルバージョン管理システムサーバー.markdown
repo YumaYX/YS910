@@ -6,20 +6,20 @@ category: "各種サーバー"
 
 ミニマルバージョン管理サーバーを構築する。SSH + Raw Gitを使用する。
 
-# うまみ
+## うまみ
 
 - 作業ディレクトリの復元が可能になる。
 - Githubを使うまでもないが、安全にバージョン管理したい時に便利使いやすい。
 
-# インストール
+## インストール
 
 ```sh
 sudo dnf -y install git
 ```
 
-# 簡単な使い方
+## 簡単な使い方
 
-## レポジトリの作成
+### レポジトリの作成
 
 - Repo Dir: `/work/git`
 - Repo Name: `myrepo`
@@ -29,13 +29,13 @@ mkdir -p        /work/git
 git init --bare /work/git/myrepo.git
 ```
 
-## レポジトリのクローン
+### レポジトリのクローン
 
 ```sh
 git clone localhost:/work/git/myrepo
 ```
 
-# その他
+## その他
 
 - 同じ作業ディレクトリと同じマシンとなるため、バックアップにはならない。
 - メリットは、極小。でも必要な時がある。

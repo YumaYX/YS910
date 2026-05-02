@@ -6,7 +6,7 @@ category: "仮想化"
 
 Kickstartを使って、KVMの仮想マシンをインストールする。
 
-### 仮想マシンがある場合、削除
+#### 仮想マシンがある場合、削除
 
 ```sh
 virsh shutdown guest1-rhel9
@@ -14,7 +14,7 @@ virsh destroy guest1-rhel9
 virsh undefine guest1-rhel9 --remove-all-storage
 ```
 
-# Kickstartコンフィグファイルの作成
+## Kickstartコンフィグファイルの作成
 
 Linux KVMならvdaを指定する。
 
@@ -45,7 +45,7 @@ rootpw --iscrypted --allow-ssh $6$EkGHWaJKwbybILqx$DwIwbw5NOGm2LpNlaCIRCeckcOlHA
 KICKSTART
 ```
 
-# インストール実施
+## インストール実施
 
 待つだけ。
 

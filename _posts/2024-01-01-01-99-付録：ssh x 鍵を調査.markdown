@@ -8,25 +8,25 @@ category: "ユーザー管理"
   - 本設定は検証のため、実運用では使用しないこと。
   - sshd_configの設定にもよるので、参考として、確認。
 
-## 検証のポイント
+### 検証のポイント
 
 - ユーザー名付きホスト指定のsshをかけた時、誰のどこの秘密鍵が使われるのか？
 - 受け側の公開鍵は誰のどこの鍵が使われるの？
 
-## 結論
+### 結論
 
 - ユーザー名付きホスト指定を使用した場合、鍵の指定無しでsshをかけると、実行ユーザーの秘密鍵が使用される。
   - 指定ユーザーの鍵は使用されない。
 - このとき、リモートの公開鍵は、**指定したユーザー**のauthorized_keysが使用される。
 
-### つまり？
+#### つまり？
 
   - ユーザー名付きホスト指定を使ってsshをする場合、実行ユーザーの秘密鍵を、リモートのユーザーのauthorized_keysに登録する必要がある。
 
 
 ちなみに、検証関わらず、リモートのユーザーの権限を代理の実行ユーザーに与えていることになるので、注意。
 
-## 環境
+### 環境
 
 - vagrant(almalinux/9)
 - host1
@@ -35,7 +35,7 @@ category: "ユーザー管理"
 - host2
   - server(101)
 
-## `first`ユーザー作成とパスワード設定
+### `first`ユーザー作成とパスワード設定
 
 * `useradd first` と `passwd first`でユーザー作成。
 * 作成先サーバーとアクセス元サーバーの両方で`first`を用意。
@@ -51,7 +51,7 @@ passwd first
 useradd first
 ```
 
-## `first`のSSH鍵ペア作成と登録
+### `first`のSSH鍵ペア作成と登録
 
 * `ssh-keygen -t ed25519`で秘密鍵`~/.ssh/id_ed25519`と公開鍵を生成。
 * `ssh-copy-id`で公開鍵を相手サーバーの`~/.ssh/authorized_keys`に登録。
@@ -64,7 +64,7 @@ chmod 600 ~/.ssh/id_ed25519
 ssh-copy-id -i ~/.ssh/id_ed25519.pub first@172.17.64.101
 ```
 
-## 接続検証（firstユーザー）
+### 接続検証（firstユーザー）
 
 * 鍵指定なし`ssh -v 172.17.64.101`や、鍵指定あり`ssh -i ~/.ssh/id_ed25519`でテスト。
 
@@ -79,7 +79,7 @@ ssh -v -i .ssh/id_ed25519 first@172.17.64.101
 # => firstの秘密鍵、firstの公開鍵
 ```
 
-## 検証
+### 検証
 
 ```sh
 # as root
@@ -94,7 +94,7 @@ ssh first@172.17.64.101
 # => password auth(first's password)
 ```
 
-## rootの接続許可
+### rootの接続許可
 
 * `/etc/ssh/sshd_config` に `PermitRootLogin yes` を追記。
 * `systemctl restart sshd`で反映。
@@ -108,7 +108,7 @@ systemctl restart sshd
 passwd
 ```
 
-## 検証
+### 検証
 
 ```sh
 # as root
@@ -122,7 +122,7 @@ ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -N "" -q
 ssh-copy-id -i ~/.ssh/id_ed25519.pub 172.17.64.101; echo ${?}
 ```
 
-## root鍵で`first`に接続を試みる
+### root鍵で`first`に接続を試みる
 
 ```sh
 # as root
@@ -145,14 +145,14 @@ ssh -v -i /root/.ssh/id_ed25519 first@172.17.64.101
 
 rootの秘密鍵を指定して`first@172.17.64.101`へ接続すると、鍵が一致しないためパスワード認証にフォールバック。
 
-## root鍵をfirstの`authorized_keys`に追記
+### root鍵をfirstの`authorized_keys`に追記
 
 ```sh
 # as root
 cat /root/.ssh/authorized_keys >> /home/first/.ssh/authorized_keys
 ```
 
-## 検証
+### 検証
 
 * rootが自身の秘密鍵を使い、`first@172.17.64.101`へ鍵認証の確認。
 

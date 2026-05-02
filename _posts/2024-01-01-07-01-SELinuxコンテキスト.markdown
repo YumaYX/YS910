@@ -6,13 +6,13 @@ category: "セキュリティ"
 
 ファイルのSELinuxコンテキストを修正する。
 
-# 何ができるか
+## 何ができるか
 
 - 一例であるが、SELinux有効の状態で、通常と異なるドキュメントルートのHTTPコンテンツ公開
   - SELinuxを無効にするそんな非常識な人はいない大前提
 - ファイル個別にSELinuxコンテキストラベルの付与
 
-# ファイルのSELinuxコンテキストを修正するステップ
+## ファイルのSELinuxコンテキストを修正するステップ
 
 ***注意：変更した場合は、必ず最後にrestoreconを入れる。***
 
@@ -25,7 +25,7 @@ category: "セキュリティ"
 1. restoreconも入れておく（<u>semanageしてなくても、必ず入れる</u>）。
     - `restorecon -v /etc/file1`
 
-# chcon
+## chcon
 
 一時的な変更（-Rを付けるとフォルダ再帰）
 
@@ -39,7 +39,7 @@ unconfined_u:object_r:samba_share_t:s0 file1
 [vagrant@localhost ~]$ 
 ```
 
-## chconを戻す場合
+### chconを戻す場合
 
 `restorecon -v file_name`
 
@@ -54,7 +54,7 @@ unconfined_u:object_r:user_home_t:s0 file1
 - restoreconも-Rでフォルダ再帰
 - restorecon -vは、show changes in file labels.
 
-# semanage
+## semanage
 
 永続的な変更。semanage打鍵後、restoreconすべき。***ディレクトリに注意。/の有り無しで、挙動が変わる。***
 
@@ -76,7 +76,7 @@ unconfined_u:object_r:samba_share_t:s0 /etc/file1
 [root@localhost ~]# 
 ```
 
-## 検証：エントリーが消えても、ファイルには反映されない
+### 検証：エントリーが消えても、ファイルには反映されない
 
 そのためrestoreconまで打鍵する必要がある。
 
@@ -113,7 +113,7 @@ unconfined_u:object_r:samba_share_t:s0 /etc/file1
 # restoreconでエントリーの状態になる
 ```
 
-## 検証：エントリーと異なる状態でリブート
+### 検証：エントリーと異なる状態でリブート
 
 ラベルは戻らない
 
@@ -121,13 +121,13 @@ unconfined_u:object_r:samba_share_t:s0 /etc/file1
 1. reboot
 1. →etc（エントリーの状態には戻らない）
 
-## ラベルの削除
+### ラベルの削除
 
 ```sh
 semanage context -d file/directory
 ```
 
-## 元に戻す場合のコマンド
+### 元に戻す場合のコマンド
 
 ```sh
 restorecon -RFv xxx
@@ -142,13 +142,13 @@ restorecon -RFv xxx
        the type.
 ```
 
-# 定義ルール一覧
+## 定義ルール一覧
 
 ```sh
 semanage fcontext -l
 ```
 
-## コンテキストの調べ方
+### コンテキストの調べ方
 
 ```sh
 dnf -y install setools-console
@@ -159,13 +159,13 @@ sesearch -b httpd_can_network_connect --allow
 # -b boolean
 ```
 
-# install semanage command
+## install semanage command
 
 ```sh
 # semanage for 8, 9
 dnf -y install policycoreutils-python-utils
 ```
 
-##### Reference
+###### Reference
 
 [Red Hat Customer Portal - Access to 24x7 support and knowledge](https://access.redhat.com/)

@@ -8,7 +8,7 @@ KVMをVagrantを使って、仮想マシンをブートする。
 
 `virsh`コマンドを使って、仮想マシンを作成、操作する方法もあるが、ここでは、vagrantを使って、仮想マシンを操作する。
 
-# Install KVM, QEMU, libvirt, Vagrant
+## Install KVM, QEMU, libvirt, Vagrant
 
 as root
 
@@ -27,13 +27,13 @@ usermod -aG libvirt ${user}
 su - ${user}
 ```
 
-# Install plugin for libvirt
+## Install plugin for libvirt
 
 ```sh
 vagrant plugin install vagrant-libvirt
 ```
 
-### Boot Virtual Machine
+#### Boot Virtual Machine
 
 [AlmaLinux 9 Box](https://app.vagrantup.com/almalinux/boxes/9)
 
@@ -54,7 +54,7 @@ VEOF
 cd vmmachine && vagrant up
 ```
 
-#### Clean Virtual Machine
+##### Clean Virtual Machine
 
 ```sh
 vagrant destroy -f

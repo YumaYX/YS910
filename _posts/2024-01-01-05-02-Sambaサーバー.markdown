@@ -6,14 +6,14 @@ category: "各種サーバー"
 
 Sambaサーバーを構築する。ネットワークを通して、ファイル共有をする。
 
-# 何ができるか？
+## 何ができるか？
 
 - ノード間でファイル共有ができるようになる
 - Linuxを仮想環境で構築した場合、ホスト間でファイル共有ができるようになる
     - Windows上にビルドしたLinux仮想マシンとファイル共有が可能になる
     - Mac上にビルドしたLinux仮想マシンとファイル共有が可能になる
 
-# 想定環境
+## 想定環境
 
 - Samba Server：192.168.11.123
     - ネットワーク：192.168.11.0/24
@@ -21,9 +21,9 @@ Sambaサーバーを構築する。ネットワークを通して、ファイル
     - ユーザ：vagrant
         - システムユーザおよび、ホームディレクトリが存在することを前提とする。
 
-# Build a Samba Server
+## Build a Samba Server
 
-## Parameters
+### Parameters
 
 ```sh
 user=vagrant
@@ -31,7 +31,7 @@ pass=vagrant
 share_dir=/samba/share
 ```
 
-## Install Packages and Setting
+### Install Packages and Setting
 
 ```sh
 dnf -y update
@@ -87,7 +87,7 @@ systemctl enable  smb.service nmb.service
 systemctl restart smb.service nmb.service
 ```
 
-### delete user
+#### delete user
 
 ユーザーを削除する場合
 
@@ -96,18 +96,18 @@ systemctl restart smb.service nmb.service
 smbpasswd -x ${user}
 ```
 
-## Connection Test
+### Connection Test
 
 クライアントのインストールを実施し、その後、共有フォルダへアクセスする。
 
-### Test by hand
+#### Test by hand
 
 ```sh
 dnf -y install samba-client
 smbclient //192.168.11.123/share
 ```
 
-### Test 2
+#### Test 2
 
 Linux上でマウントする際は、一般ユーザに権限を与える形(uid,gidを指定)する形をおすすめする。
 
@@ -117,7 +117,7 @@ dnf -y install cifs-utils
 sudo mount -t cifs -o username=vagrant,password=vagrant,uid=1000,gid=1000 '//192.168.11.123/Share' /media ; echo $?
 ```
 
-#### マウントコマンド詳細
+##### マウントコマンド詳細
 
 ```sh
 # mount -t cifs [-o <options>] //<接続先>/<共有フォルダ名> <マウント先>
@@ -130,9 +130,9 @@ sudo mount -t cifs -o username=vagrant,password=vagrant,uid=1000,gid=1000 '//192
 
 rootでマウントすると、一般ユーザで書き込めないため、uid,gidをオプションに付加する。ゲストユーザも状況は同じである。
 
-## SELinux関連
+### SELinux関連
 
-### /homeをsamba共有する方法について
+#### /homeをsamba共有する方法について
 
 ホームディレクトリをSambaで共有する場合
 
@@ -143,7 +143,7 @@ valid users = %S, %D%w%S
 browseable = no
 ```
 
-### SELinux設定変更
+#### SELinux設定変更
 
 ホームディレクトリをSamba側へ共有する設定
 
@@ -156,13 +156,13 @@ systemctl restart smb.service nmb.service
 
 上のコマンドは、認証はあるものの/home全てをSamba側へ共有している。構築する状況によっては、個別にフォルダを切ること・個別にSambaにフォルダを見せるようにする必要がある（コンテンツの共有ファイル、範囲を考慮する必要がある。SELinuxの設定を変更する場合は、影響範囲を考えて、慎重に行わなければいけない。/home以下の個別設定等は、本稿では割愛する）。
 
-#### Connection Test
+##### Connection Test
 
 ```sh
 mount -t cifs -o username=vagrant,password=vagrant,uid=1000,gid=1000 '//192.168.11.123/vagrant' /media
 ```
 
-### Shareディレクトリのラベルについて
+#### Shareディレクトリのラベルについて
 
 semanageまたは、restoreconを再度打鍵すると、ファイルのSELinuxセキュリティコンテキストラベルが変更される場合がある。以下にファイルサーバとして使用できる状態を示す。タイプが、samba_share_tになっていることが、Sambaへの共有を示す。
 
@@ -176,7 +176,7 @@ system_u:object_r:samba_share_t:s0 share
 [root@localhost ~]# 
 ```
 
-#### SELinuxセキュリティコンテキスト(ls -Z)
+##### SELinuxセキュリティコンテキスト(ls -Z)
 
 ```
 system_u:object_r:samba_share_t:s0 <dir/file name>
@@ -192,11 +192,11 @@ system_u:object_r:samba_share_t:s0 <dir/file name>
     - samba_share_t：sambaに使用
 - レベル
 
-# Macからの接続
+## Macからの接続
 
 - Finder -> 移動 -> サーバへ移動...(⌘+k)
 
-## 接続URI
+### 接続URI
 
 ```sh
 smb://vagrant:vagrant@192.168.11.123
@@ -210,7 +210,7 @@ cifs://vagrant:vagrant@192.168.11.123
 cifs://vagrant:vagrant@192.168.11.123/Share
 ```
 
-# Windows 11からの接続
+## Windows 11からの接続
 
 コマンドプロンプトにて
 
@@ -218,7 +218,7 @@ cifs://vagrant:vagrant@192.168.11.123/Share
 net use r: \\192.168.11.123\Share vagrant /user:vagrant
 ```
 
-# Environments
+## Environments
 
 ```
 [root@localhost ~]# cat /etc/redhat-release 

@@ -6,7 +6,7 @@ category: "各種サーバー"
 
 Ansibleサーバーを構築する。
 
-# Build an Ansible Server
+## Build an Ansible Server
 
 ```sh
 # as root
@@ -24,7 +24,7 @@ source venv/bin/activate && pip3 install --upgrade pip
 source venv/bin/activate && pip3 install --no-cache-dir -r requirements.txt
 ```
 
-## 他のインストール方法
+### 他のインストール方法
 
 ディストリビューションのパッケージマネージャーでインストールすることも可能である。一般的にはこの方法が推奨されているらしい。
 
@@ -38,13 +38,13 @@ dnf -y install epel-release
 dnf -y install ansible
 ```
 
-# More Details
+## More Details
 
 ホスト、コンフィグの書き方、ロールの作り方、実行方法は、以下のリンクから確認できる。
 
 [Ansibleの使い方](https://github.com/YumaYX/docs/blob/main/_posts/2024-05-18-Ansible.markdown){:.button}
 
-# Environments
+## Environments
 
 ```
 [root@y ~]# cat /etc/redhat-release

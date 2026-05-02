@@ -6,7 +6,7 @@ category: "ユーザー管理"
 
 グループとユーザーを作成する。
 
-# グループ作成
+## グループ作成
 
 - gid:1234
 - group name: mygroup
@@ -15,9 +15,9 @@ category: "ユーザー管理"
 groupadd -g 1234 mygroup
 ```
 
-# ユーザー作成
+## ユーザー作成
 
-## 一般ログインユーザー
+### 一般ログインユーザー
 
 - user name: myuser
 - group name: mygroup
@@ -27,7 +27,7 @@ groupadd -g 1234 mygroup
 useradd -m -u 1234 myuser -g mygroup
 ```
 
-## ログインなしユーザー
+### ログインなしユーザー
 
 - user name: myuser
 - uid: 1234
@@ -36,7 +36,7 @@ useradd -m -u 1234 myuser -g mygroup
 useradd -M -s /sbin/nologin -u 1234 myuser -g mygroup
 ```
 
-# グループへのユーザー追加
+## グループへのユーザー追加
 
 - group name: mygroup
 - user name: myuser

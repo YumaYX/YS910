@@ -9,12 +9,12 @@ category: "パッケージレポジトリ"
 - ネットワーク内にミラーを置けば、外部ネットワークに出られない環境でも利用可能となる。
 - 地理的に近いミラーを使えるので、クローンや依存関係の取得が速くなる。
 
-## 対象
+### 対象
 
 - AlmaLinux BaseOS
 - AlmaLinux AppStream
 
-## 手順
+### 手順
 
 ミラーレポジトリ運用に必要なパッケージをインストールする。
 
@@ -52,7 +52,7 @@ done
 
 ---
 
-# おまけ
+## おまけ
 
 - repoファイルの設定例
   - ミラーレポのサーバーIPアドレスが`192.168.11.42`
@@ -125,7 +125,7 @@ enabled_metadata=0
 APPSTREAMEOL
 ```
 
-### vagrantで使うとき
+#### vagrantで使うとき
 
 ```ruby
   config.vm.provision "shell", inline: <<-SHELL
@@ -135,7 +135,7 @@ APPSTREAMEOL
   SHELL
 ```
 
-#### Link
+##### Link
 
 [Index of /Linux/almalinux](https://ftp.riken.jp/Linux/almalinux/)
 

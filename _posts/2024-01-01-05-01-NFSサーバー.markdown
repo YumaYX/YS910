@@ -25,7 +25,7 @@ firewall-cmd --add-service=nfs --permanent
 firewall-cmd --reload
 ```
 
-## NFSマウント
+### NFSマウント
 
 ```sh
 mount -t nfs <NFSサーバーIPアドレス>:/nfs /media

@@ -6,16 +6,16 @@ category: "各種サーバー"
 
 NTPサーバーを構築する。
 
-# 何ができるか？
+## 何ができるか？
 
 
-# 想定環境
+## 想定環境
 
 - Server：192.168.123.2
 - Client：192.168.123.3
 - NTPサーバー問い合わせ先：ntp1.sakura.ad.jp
 
-# Build a NTP Server:.2
+## Build a NTP Server:.2
 
 ```sh
 dnf -y install firewalld
@@ -42,7 +42,7 @@ timedatectl set-timezone Asia/Tokyo
 timedatectl
 ```
 
-# Build a NTP Client:.3
+## Build a NTP Client:.3
 
 
 ```sh
@@ -64,7 +64,7 @@ timedatectl set-timezone Asia/Tokyo
 timedatectl
 ```
 
-## # chronyc sources
+### # chronyc sources
 
 [新しいNTPクライアント＆サーバ、chrony #Linux - Qiita](https://qiita.com/yunano/items/7883cf295f91f4ef716b)
 

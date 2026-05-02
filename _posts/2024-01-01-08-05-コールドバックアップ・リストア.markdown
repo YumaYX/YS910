@@ -4,11 +4,11 @@ title: コールドバックアップ・リストア
 category: "バックアップリストア"
 ---
 
-## 何ができるか
+### 何ができるか
 
 - Linux OS(ディスク)のコールドバックアップとリストア
 
-## 想定環境
+### 想定環境
 
 - /dev/vda
   - OSディスク
@@ -16,14 +16,14 @@ category: "バックアップリストア"
 - /dev/vdb
   - バックアップ格納先
 
-## 注意
+### 注意
 
 - ディスクの操作は、必ずOS停止中に行うこと
 
 
-## 手順
+### 手順
 
-### バックアップ用のディスクを用意とバックアップ
+#### バックアップ用のディスクを用意とバックアップ
 
 1. OSインストールメディアから、ブートして、レスキューモードでシェルを起動する。
 1. 以下のコマンドを打鍵する。
@@ -51,7 +51,7 @@ mount ${bkdisk}1 ${bkdir}
 dd if=/dev/vda bs=16MB iflag=nocache oflag=nocache,dsync | pigz > ${bkdir}/vda_backup.image.gz
 ```
 
-### リストア
+#### リストア
 
 1. OSインストールメディアから、ブートして、レスキューモードでシェルを起動する。
 1. 以下のコマンドを打鍵する。
@@ -67,7 +67,7 @@ mount ${bkdisk}1 ${bkdir}
 gunzip -c ${bkdir}/vda_backup.image.gz | dd of=/dev/vda bs=16MB status=progress
 ```
 
-### その他
+#### その他
 
 - 仮想環境(KVM)にて検証実施
 - /dev/vdaに0書き込み後、リストアを実施して、OSが起動することを確認済み
@@ -75,6 +75,6 @@ gunzip -c ${bkdir}/vda_backup.image.gz | dd of=/dev/vda bs=16MB status=progress
 
 古典。
 
-##### Reference
+###### Reference
 
 [「dd \| gzip」 はそこまでだ！「dd \| pigz」にするだけで20倍速くなった件 #Linux - Qiita](https://qiita.com/taiyodayo/items/7c60c9b3bc00b13baf43)
