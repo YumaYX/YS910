@@ -14,5 +14,5 @@ layout: default
 
 ## 付録
 
-- [コマンド集](https://yumayx.github.io/docs/menu/#commands)
+- [コマンド集](https://yumayx.github.io/docs/)
 - [プロジェクトレポジトリ](https://github.com/YumaYX/YS910)
