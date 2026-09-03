@@ -42,8 +42,6 @@ dnf -y install ansible
 
 ホスト、コンフィグの書き方、ロールの作り方、実行方法は、以下のリンクから確認できる。
 
-[Ansibleの使い方](https://github.com/YumaYX/docs/blob/main/_posts/2024-05-18-Ansible.markdown){:.button}
-
 ## Environments
 
 ```
@@ -57,5 +55,3 @@ AlmaLinux release 9.6 (Sage Margay)
 Python 3.9.21
 (venv) [user@y ~/ansible] $
 ```
-
-
